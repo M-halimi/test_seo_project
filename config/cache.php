@@ -3,6 +3,17 @@
 use Illuminate\Support\Str;
 
 return [
+    'default' => env('CACHE_DRIVER', 'file'),
+
+    'stores' => [
+        'database' => [
+            'driver' => 'database',
+            'table'  => 'cache',
+            'connection' => env('DB_CACHE_CONNECTION', null),
+        ],
+        // other cache stores
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
