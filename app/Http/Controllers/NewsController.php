@@ -9,15 +9,16 @@ class NewsController extends Controller
 {
     public function index()
     {
+
 //        $news = News::all();
 //        dd($news);
-        $news = News::latest()->paginate(10);
+        $news = News::latest()->paginate(12);
         return view('news.index', compact('news'));
     }
 
     public function show(News $news)
     {
-//        $seo = $news->seo;
+        $seo = $news->addSEO();
 
         return view('news.show', compact('news'));  // Pass the news item to the view
     }
